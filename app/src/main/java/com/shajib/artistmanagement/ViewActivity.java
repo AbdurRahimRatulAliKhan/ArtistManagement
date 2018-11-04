@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +46,9 @@ public class ViewActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                artists.clear();
+                Toast.makeText(ViewActivity.this, "Updated", Toast.LENGTH_SHORT).show();
 
                 Iterable<DataSnapshot> dataSnapshots = dataSnapshot.getChildren();
 
